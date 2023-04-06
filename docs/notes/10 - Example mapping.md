@@ -1,3 +1,7 @@
+## Example Mapping
+
+
+
 ### **Story 1 : Définir une devise pivot**
 ```gherkin
 As a Foreign Exchange Expert
