@@ -42,23 +42,6 @@ class Bank
         $this->exchangeRates[($this->getKey($fromDevise, $toDevise))] = $rate;
     }
 
-    /**
-     * @param float $amount
-     * @param Currency $fromDevise
-     * @param Currency $toDevise
-     * @return float
-     * @throws MissingExchangeRateException
-     */
-    public function convert(float $amount, Currency $fromDevise, Currency $toDevise): float
-    {
-        if ($this->isConvertNonValid($fromDevise, $toDevise)) {
-            throw new MissingExchangeRateException($fromDevise, $toDevise);
-        }
-        return $fromDevise == $toDevise
-            ? $amount
-            : $amount * $this->exchangeRates[($this->getKey($fromDevise, $toDevise))];
-    }
-
     private function isConvertNonValid(Currency $fromDevise, Currency $toDevise): bool
     {
         return ($fromDevise != $toDevise && !array_key_exists($this->getKey($fromDevise, $toDevise), $this->exchangeRates));
@@ -66,5 +49,22 @@ class Bank
 
     private function getKey(Currency $fromDevise, Currency $toDevise) : string {
         return $fromDevise . '->' . $toDevise;
+    }
+
+    /**
+     * @param Money $money
+     * @param Currency $toDevise
+     * @param Currency $fromDevise
+     * @return float
+     * @throws MissingExchangeRateException
+     */
+    public function convert(Money $money, Currency $toDevise): Money
+    {
+        if ($this->isConvertNonValid($money->getCurrency(), $toDevise)) {
+            throw new MissingExchangeRateException($money->getCurrency(), $toDevise);
+        }
+        return $money->getCurrency() == $toDevise
+            ? $money
+            : new Money($money->getMoney() * $this->exchangeRates[($this->getKey($money->getCurrency(), $toDevise))], $toDevise);
     }
 }
