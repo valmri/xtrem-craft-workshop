@@ -1,3 +1,19 @@
+Membres du groupe : 
+- Bastien Byra
+- Valentin Marmié 
+- Julien Dessaigne
+- Maxime Ducamin
+
+Dossier de note : /docs/notes
+
+Langage choisi : PHP 
+
+
+
+
+
+
+
 # Xtrem Craft workshop
 
 This workshop is based on the [Xtrem TDD workshop](https://github.com/les-tontons-crafters/xtrem-tdd-money-kata), 
