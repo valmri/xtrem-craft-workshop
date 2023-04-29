@@ -1,7 +1,7 @@
 # Code review
 
 MoneyCalculator.php :
-    - paramètre Currency non utilisé dans chaque méthodes
+    - paramètre Currency non utilisé dans chaque méthode
     - param int pour méthodes times et divide
     - Mieux nommer Currency1 et Currency2 pour que ce soit plus explicite
 

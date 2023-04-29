@@ -1,4 +1,4 @@
-# Mutation testing
+**# Mutation testing
 
 ## Code Coverage
 Lancer une analyse du `code coverage` et discuter des résultats obtenus.
@@ -17,4 +17,4 @@ Prendre un peu de temps pour découvrir le concept de [Mutation Testing](https:/
 
 ## La chasse aux mutants
 
-En mob programming, appliquer les corrections nécessaires
+En mob programming, appliquer les corrections nécessaires**
